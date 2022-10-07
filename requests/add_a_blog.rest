@@ -1,8 +1,5 @@
 @hostname = http://localhost:3003
 
-GET {{hostname}}/api/blogs
-
-###
 POST {{hostname}}/api/blogs
 Content-Type: application/json
 
