@@ -1,4 +1,4 @@
-const favoriteBlog = require('../utils/listHelper').favoriteBlog
+const favoriteBlog = require('../tests/listHelper').favoriteBlog
 
 describe('most likes', () => {
     const blogs = [
@@ -54,7 +54,6 @@ describe('most likes', () => {
     
     test('the blog that has most likes', () => {
       const result = favoriteBlog(blogs)
-      console.log("Result on ", result)
       expect(result).toEqual(blogs[2])
     })
   })
