@@ -55,6 +55,18 @@ test('a value for likes is placed', async () => {
     .expect('Content-Type', /application\/json/)
   })
 
+test('a blog without title or url is not added', async () => {
+  const newBlog = {
+    author: 'tekijä_3',
+    likes: 3,
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(400)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
