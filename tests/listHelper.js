@@ -33,7 +33,7 @@ const favoriteBlog = (blogs) => {
   return c
 }
 
-const notesInDb = async () => {
+const blogsInDb = async () => {
   const blogs = await Blog.find({})
   return blogs.map(b => b.toJSON())
 }
@@ -42,5 +42,5 @@ module.exports = {
     totalLikes,
     favoriteBlog,
     initialBlogs,
-    notesInDb
+    blogsInDb
   }
