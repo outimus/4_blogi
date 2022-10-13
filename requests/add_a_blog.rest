@@ -4,8 +4,8 @@ POST {{hostname}}/api/blogs
 Content-Type: application/json
 
 {
-    "title": "testiä",
+    "title": "kolmas uusi blogi",
     "author": "0szdgkjkzdgj",
-    "url": "kljglk",
-    "likes": 0
+    "url": "kdkjgldjk",
+    "likes": 10
 }

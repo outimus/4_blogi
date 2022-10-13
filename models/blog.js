@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
-const blogSchema = mongoose.Schema({
+const blogSchema = new mongoose.Schema({
     title: String,
     author: String,
     url: String,
-    likes: Number
-  })
+    likes: Number,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+})
 
 blogSchema.set('toJSON', {
 transform: (document, returnedObject) => {
@@ -15,7 +19,7 @@ transform: (document, returnedObject) => {
 }
 })
 
-// Pitääkö tämän olla täällä?
 const Blog = mongoose.model('Blog', blogSchema)
-  
+
+module.exports = Blog
 module.exports = mongoose.model('Blog', blogSchema)
