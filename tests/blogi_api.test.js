@@ -138,6 +138,51 @@ describe('when there is initially one user at db', () => {
   })
 })
 
+// Tarkistetaan käyttäjänimen ja salasanan riittävä pituus
+describe('to get statuscode 400 if username or password is too short', () => {
+  beforeEach(async () => {
+    await User.deleteMany({})
+    const passwordHash = await bcrypt.hash('sekret', 10)
+    const user = new User({ username: 'root', name: "kl1235343", passwordHash })
+    await user.save()
+  })
+
+  test('creation fails with too short username', async () => {
+    const usersAtStart = await helper.usersInDb()
+
+    const newUser = {
+      username: 'jo',
+      name: 'Jaska Jokunen',
+      password: 'sananen',
+    }
+
+    await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)
+
+    const usersAtEnd = await helper.usersInDb()
+    expect(usersAtEnd).toHaveLength(usersAtStart.length)
+  })
+  test('creation fails with too short password', async () => {
+    const usersAtStart = await helper.usersInDb()
+
+    const newUser = {
+      username: 'joonatan',
+      name: 'Jaska Jokunen',
+      password: 'sa',
+    }
+
+    await api
+      .post('/api/users')
+      .send(newUser)
+      .expect(400)
+
+    const usersAtEnd = await helper.usersInDb()
+    expect(usersAtEnd).toHaveLength(usersAtStart.length)
+  })
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })

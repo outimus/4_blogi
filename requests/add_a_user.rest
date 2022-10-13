@@ -4,7 +4,7 @@ POST {{hostname}}/api/users
 Content-Type: application/json
 
 {
-    "username": "uusi henkilö",
+    "username": "uusi",
     "name": "mikki hiiri",
-    "password": ""
+    "password": "1333"
 }
