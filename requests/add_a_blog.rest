@@ -2,10 +2,11 @@
 
 POST {{hostname}}/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1oaGgiLCJpZCI6IjYzNDgxNGM4MGY1NjE4YTRkMzlmMGM4NiIsImlhdCI6MTY2NTczMjU5MX0.K-Bmdys4nIjfbkBcPrgToyKL1xbOucSqXyibSMX0wNE
 
 {
-    "title": "uusi blogi",
-    "author": "oskljg",
+    "title": "kirjautuneen käyttäjän blogi",
+    "author": "tärkeä henkilö",
     "url": "jotain",
     "likes": 2,
     "userId": "634814c80f5618a4d39f0c86"
