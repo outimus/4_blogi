@@ -23,17 +23,17 @@ usersRouter.post('/', async (request, response) => {
     username,
     name,
     passwordHash,
+    blogs,
   })
   const savedUser = await user.save()
   response.status(201).json(savedUser)
 })
 
-// Tämä ei toimi.
-/*usersRouter.get('/', async (request, response) => {
+usersRouter.get('/', async (request, response) => {
   const users = await User
     .find({})
-    .populate('user', { username: 1, name: 1 })
+    .populate('blogs', { url: 1, title: 1, author: 1, id: 1 })
   response.json(users)
-})*/
+})
 
 module.exports = usersRouter
