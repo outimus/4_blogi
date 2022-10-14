@@ -30,7 +30,6 @@ describe('when there is initially some blogs saved', () => {
       url: 'www.osoite_3.fi',
       likes: 3,
     }
-    console.log('New Blog on ',newBlog)
     await api
       .post('/api/blogs')
       .send(newBlog)
