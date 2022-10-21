@@ -4,8 +4,7 @@ POST {{hostname}}/api/users
 Content-Type: application/json
 
 {
-    "username": "mhhh",
-    "name": "maija mehiläinen",
+    "username": "hessu",
+    "name": "hessu hopo",
     "password": "123456",
-    "blogs": []
 }
