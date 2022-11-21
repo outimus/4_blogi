@@ -1,4 +1,4 @@
-@hostname = http://localhost:3003
+@hostname = http://localhost:3003/
 
 POST {{hostname}}/api/blogs
 Content-Type: application/json
